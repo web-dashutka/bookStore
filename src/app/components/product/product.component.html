@@ -1,8 +1,12 @@
-<div class="product">
-    <img src="" alt="Product Image">
-    <h3>Product title</h3>
-    <p class='author'>Author</p>
-    <p class='descr'>Description</p>
-    <p class='price'>Description</p>
-    <button class='add-cart'>Add to Cart</button>
+<div class="products-wrap">
+    <div *ngFor="let product of products" class="product">
+        <img src="{{product?.image}}" alt="{{product?.title}}">
+        <h3><a href="#">{{product?.title}}</a></h3>
+        <p class='author'><strong>Author:</strong> {{product?.author}}</p>
+        <p class='descr'>{{product?.description}}</p>
+        <div class="price-block">
+            <p class='prise'>{{product?.price}} <span>{{product?.currency}}</span></p>
+            <button class='add-cart'>Add to Cart</button>
+        </div>
+    </div>
 </div>
