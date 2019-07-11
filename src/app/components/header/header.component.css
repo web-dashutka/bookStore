@@ -6,10 +6,11 @@
     border-bottom: 1px solid #000;
     margin-bottom: 25px;
 }
-.header .logo {
+.header .logo a {
     display: flex;
     align-items: center;
+    color: #000;
 }
-.header .logo img {
+.header .logo a img {
     max-width: 50px;
 }

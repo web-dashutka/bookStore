@@ -1,14 +1,14 @@
 <div class="products-wrap">
-    <div *ngFor="let product of products" class="product">
-        <img src="{{product?.image}}" alt="{{product?.title}}">
-        <h3><a href="#">{{product?.title}}</a></h3>
-        <div class="desc-block">
-            <p class='author'><strong>Author:</strong> {{product?.author}}</p>
-            <p class='descr'>{{product?.description}}</p>
+    <div *ngFor="let product of products" class="card product">
+        <img src="{{product?.image}}" class="card-img-top" alt="{{product?.image}}">
+        <div class="card-body">
+            <h5 class="card-title">{{product?.title}}</h5>
+            <p class="card-text author"><strong>Author:</strong> {{product?.author}}</p>
+            <p class="card-text descr">{{product?.description}}</p>
         </div>
-        <div class="price-block">
-            <p class='prise'>{{product?.price}} <span>{{product?.currency}}</span></p>
-            <button class='add-cart'>Add to Cart</button>
+        <div class="card-footer">
+            <p class="card-text price">{{product?.price}} <span>{{product?.currency}}</span></p>
+            <button href="#" class="btn btn-success">Add to Cart</button>
         </div>
     </div>
 </div>

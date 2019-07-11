@@ -5,49 +5,24 @@
 .product {
     display: flex;
     flex-direction: column;
-    flex-basis: 30%;
+    flex-basis: 33%;
     padding: 0 0.5%;
 }
 .product img {
     height: 330px;
     margin-bottom: 10px;
 }
-.product h3 {
-    margin-bottom: auto;
-}
-.product .descr {
+.product .card-body .descr {
     font-size: 12px;
     opacity: 0.5;
 }
-.product .author strong {
+.product .card-body .author strong {
     margin-right: 3px;
 }
-.product .price-block {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.product .card-body .price {
     margin-top: auto;
 }
-.product .price-block .prise {
-    flex-basis: 100%;
-    font-weight: bold;
-    font-size: 22px;
-    text-align: right;
-    color: rgb(22, 182, 142);
-}
-.product .price-block .add-cart {
-    margin-bottom: 25px;
-    margin-top: 5px;
-    border: 1px solid rgba(22, 182, 142, .75);
-    border-radius: 25px;
-    background-color: transparent;
-    padding: 10px;
-    text-transform: uppercase;
-    transition: all .25s ease;
-}
-.product .price-block .add-cart:hover {
-    cursor: pointer;
-    color: rgb(22, 182, 142);
-    border-color: rgba(22, 182, 142, 1);
-    transition: all .25s ease;
+.card-footer {
+    display: flex;
+    justify-content: space-between;
 }
