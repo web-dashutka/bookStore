@@ -11,11 +11,12 @@ export class SignInComponent {
 
   userName: string;
   userPass: string;
+  authError: string;
   
   constructor(private authService: AuthService){}
 
   login() {
-    this.authService.userLogin(this.userName, this.userPass);
+    this.authError = this.authService.userLogin(this.userName, this.userPass);
   }
 
   ngOnInit(){
