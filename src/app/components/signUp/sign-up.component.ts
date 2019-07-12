@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  
+
+  userName: string;
+  userPass: string;
+  authError: any;
+
+  constructor(private authService: AuthService){}
+
+  signUp() {
+    this.authError = this.authService.userRegistration(this.userName, this.userPass);
+  }
 }

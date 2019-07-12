@@ -4,14 +4,13 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css'],
-  providers: [AuthService]
+  styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
 
   userName: string;
   userPass: string;
-  authError: string;
+  authError: any;
   
   constructor(private authService: AuthService){}
 
@@ -19,7 +18,4 @@ export class SignInComponent {
     this.authError = this.authService.userLogin(this.userName, this.userPass);
   }
 
-  ngOnInit(){
-    
-  }
 }

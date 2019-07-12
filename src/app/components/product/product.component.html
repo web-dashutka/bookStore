@@ -7,7 +7,7 @@
             <p class="card-text descr">{{product?.description}}</p>
         </div>
         <div class="card-footer">
-            <p class="card-text price">{{product?.price}} <span>{{product?.currency}}</span></p>
+            <p *ngIf="authService.isLogin" class="card-text price">{{product?.price}} <span>{{product?.currency}}</span></p>
             <button href="#" class="btn btn-success">Add to Cart</button>
         </div>
     </div>

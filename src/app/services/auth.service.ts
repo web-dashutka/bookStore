@@ -3,28 +3,46 @@ import { users } from '../data/user-data.service';
 import { Router } from '@angular/router';
 
 export class AuthService {
-    private users: object[] = [...users];
+    isLogin: boolean = false;
+    isUser: boolean = false;
+    private allUsers: object[] = [...users];
     constructor(private router: Router) {}
 
     userLogin(userName: string, userPass: string) {
-        let secret_key: string = 'secret_key';
-        let isUser: boolean = this.users.some((user: User) => {
+        this.isUser = this.allUsers.some((user: User, i: number) => {
             if (user.userName === userName && user.userPass === userPass) {
-                user.token = user.userName + user.userPass + secret_key;      
-                localStorage.setItem('auth_token', user.token);
+                localStorage.setItem('user', JSON.stringify(user));
+                this.router.navigate([''])
+                this.authCheck()
                 return true;
-            }
+            } 
         })
-        
-        if (isUser) {
-            this.router.navigate([''])
-        } else {
-            return 'Invalid username or password';
+
+        if (!this.isUser) {
+            return 'Invalid username or password'
         }
          
     }
 
-    // userRegistration(userName: string, userPass: string, token: string = '') {
-    //     this.users.push(new UserData(userName, userPass, token))
-    // }
+    authCheck() {
+        localStorage.getItem('user') ? this.isLogin = true : null;
+    }
+
+    userRegistration(userName: string, userPass: string) {
+        if(userName.length > 5 && userPass.length > 5) {
+            return 'Password and login must contain more than 5 characters'
+        } else {
+            users.push(new User(userName, userPass))
+            localStorage.setItem('user', JSON.stringify(new User(userName, userPass)));
+            this.router.navigate([''])
+            this.authCheck()
+        }
+    }
+
+    logout() {
+        localStorage.removeItem('user')
+        this.isLogin = false;
+        this.authCheck()
+    }
+
 }
