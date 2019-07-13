@@ -1,5 +1,5 @@
-import { Component, OnChanges } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ export class HeaderComponent {
   constructor(public authService: AuthService){}
   
   logout() {
-    this.authService.logout();
+    this.authService.logout()
   }
 
 }

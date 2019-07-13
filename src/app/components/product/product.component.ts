@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component, Input } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-product',
@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProductComponent {
 
-  @Input() products: object;
+  @Input() products: object
 
   constructor(public authService: AuthService) { }
 

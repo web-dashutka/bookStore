@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component } from '@angular/core'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-sign-up',
@@ -8,13 +8,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignUpComponent {
 
-  userName: string;
-  userPass: string;
-  authError: any;
+  userName: string
+  userPass: string
+  authError: any
 
   constructor(private authService: AuthService){}
 
-  signUp() {
-    this.authError = this.authService.userRegistration(this.userName, this.userPass);
-  }
 }
