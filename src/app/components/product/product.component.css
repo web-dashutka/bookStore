@@ -1,6 +1,7 @@
 .products-wrap {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 .product {
     display: flex;

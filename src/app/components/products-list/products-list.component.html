@@ -1,2 +1,9 @@
 <h2 class="main-content-title">Products catalog</h2>
 <app-product class="products-wrap" [products]="products"></app-product>
+<ngb-pagination class="d-flex justify-content-center"
+                [collectionSize]="collectionSize"
+                [(page)]="page"
+                [pageSize]="itemsPerPage"
+                (pageChange)="onPageChanged($event)"
+                aria-label="Default pagination">
+</ngb-pagination>

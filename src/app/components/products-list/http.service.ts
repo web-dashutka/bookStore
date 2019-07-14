@@ -1,12 +1,26 @@
-import {Injectable} from '@angular/core'
-import {HttpClient} from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
+
+import { ProductPage } from './product-page'
   
 @Injectable()
 export class HttpService{
   
-    constructor(private http: HttpClient){ }
+    constructor(private httpClient: HttpClient){ }
       
-    getData(){
-        return this.http.get('api/products')
+    getData(page:number, itemsPerPage:number): Observable<ProductPage> {
+        let products = this.httpClient.get<any[]>('api/products')
+        return this.getPageItems(products, page, itemsPerPage)
+    }
+
+    private getPageItems(products: Observable<any[]>, page: number, itemsPerPage: number): Observable<ProductPage> {
+        return products.pipe(
+            map(prod => {
+                let startIdx = itemsPerPage * (page - 1)
+                return new ProductPage(prod.length, prod.slice(startIdx, startIdx + itemsPerPage))
+            })
+        )
     }
 }

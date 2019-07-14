@@ -61,6 +61,87 @@ export class InMemoryDataService implements InMemoryDbService {
             "price": 17,
             "currency": "$",
             "type": "magazine"
+        },
+        {
+            "id": 5,
+            "image": "https://www.newsstand.co.uk/i2619224/Zoom/BLOOM_Issue-3.jpg",
+            "title": "Bloom Magazine",
+            "author": "Bloom Magazine",
+            "description": "Bloom is a magazine for gardeners, plant admirers, nature lovers, curious explorers and outdoor adventurers.",
+            "price": 25,
+            "currency": "$",
+            "type": "magazine"
+        },
+        {
+            "id": 6,
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51YDQZYoHqL._SX324_BO1,204,203,200_.jpg",
+            "title": "Can Love Happen Twice",
+            "author": "Ravinder Singh",
+            "description": "In today's generation, love and relationships have lost the profound effect that they used to have.",
+            "price": 30,
+            "currency": "$",
+            "type": "book"
+        },
+        {
+            "id": 7,
+            "image": "https://www.newsstand.co.uk/i2622755/Zoom/POSITIVE-NEWS_Issue-98.jpg",
+            "title": "Positive News Magazine",
+            "author": "Positive News Magazine",
+            "description": "A quarterly magazine that strives towards constructive journalism and truth bearing as a force for good. Positive News magazine is an independent title reporting on current affairs and progressive politics.",
+            "price": 17,
+            "currency": "$",
+            "type": "magazine"
+        },
+        {
+            "id": 8,
+            "image": "https://www.newsstand.co.uk/i2619224/Zoom/BLOOM_Issue-3.jpg",
+            "title": "Bloom Magazine",
+            "author": "Bloom Magazine",
+            "description": "Bloom is a magazine for gardeners, plant admirers, nature lovers, curious explorers and outdoor adventurers.",
+            "price": 25,
+            "currency": "$",
+            "type": "magazine"
+        },
+        {
+            "id": 9,
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51YDQZYoHqL._SX324_BO1,204,203,200_.jpg",
+            "title": "Can Love Happen Twice",
+            "author": "Ravinder Singh",
+            "description": "In today's generation, love and relationships have lost the profound effect that they used to have.",
+            "price": 30,
+            "currency": "$",
+            "type": "book"
+        },
+        {
+            "id": 10,
+            "image": "https://www.newsstand.co.uk/i2622755/Zoom/POSITIVE-NEWS_Issue-98.jpg",
+            "title": "Positive News Magazine",
+            "author": "Positive News Magazine",
+            "description": "A quarterly magazine that strives towards constructive journalism and truth bearing as a force for good. Positive News magazine is an independent title reporting on current affairs and progressive politics.",
+            "price": 17,
+            "currency": "$",
+            "type": "magazine"
+        }
+        ,
+        {
+            "id": 11,
+            "image": "https://images-na.ssl-images-amazon.com/images/I/51YDQZYoHqL._SX324_BO1,204,203,200_.jpg",
+            "title": "Can Love Happen Twice",
+            "author": "Ravinder Singh",
+            "description": "In today's generation, love and relationships have lost the profound effect that they used to have.",
+            "price": 30,
+            "currency": "$",
+            "type": "book"
+        },
+        {
+            "id": 12,
+            "image": "https://www.newsstand.co.uk/i2622755/Zoom/POSITIVE-NEWS_Issue-98.jpg",
+            "title": "Positive News Magazine",
+            "author": "Positive News Magazine",
+            "description": "A quarterly magazine that strives towards constructive journalism and truth bearing as a force for good. Positive News magazine is an independent title reporting on current affairs and progressive politics.",
+            "price": 17,
+            "currency": "$",
+            "type": "magazine"
         }
     ]
     return { users, products }

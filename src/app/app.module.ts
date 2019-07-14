@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
-import {Routes, RouterModule} from '@angular/router'
+import { Routes, RouterModule } from '@angular/router'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './components/header/header.component'
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),

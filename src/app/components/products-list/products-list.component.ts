@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { HttpService } from './http.service'
 
 @Component({
@@ -7,18 +7,31 @@ import { HttpService } from './http.service'
   styleUrls: ['./products-list.component.css'],
   providers: [HttpService]
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent {
 
-  products: object
+  itemsPerPage: number = 6
+  products: any[]
   error: any
+  page: number
+  collectionSize: number
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {
+    this.page = 1
+    this.loadPage()
+  }
 
-  ngOnInit() {
-    this.httpService.getData().subscribe(
-      data => this.products = data,
+  loadPage() {
+    this.httpService.getData(this.page, this.itemsPerPage)
+    .subscribe(productPage => {
+        this.products = productPage.productsСurrentPage
+        this.collectionSize = productPage.totalCount
+      },
       error => {this.error = error.message; console.log(this.error)}
-      )
+    )
+  }
+
+  onPageChanged() {
+    this.loadPage()
   }
 
 }
