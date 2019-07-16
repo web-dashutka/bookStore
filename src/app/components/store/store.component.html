@@ -1,8 +1,12 @@
-<div class="main-content">
-    <div class="filters-wrap">
-        <app-filters></app-filters>
-    </div>
-    <div class="products-list-wrap">
-        <app-products-list></app-products-list>
+<div class="container">
+    <app-layout [displayComponent]="'header'"></app-layout>
+    <div class="main-content">
+        <div class="filters-wrap">
+            <app-layout [displayComponent]="'filter'"></app-layout>
+        </div>
+        <div class="products-list-wrap">
+            <app-products-list></app-products-list>
+        </div>
     </div>
 </div>
+

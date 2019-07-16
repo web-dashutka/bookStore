@@ -24,3 +24,7 @@ a:hover {
     color: rgb(13, 119, 211);
     transition: color .25s ease;
 }
+
+ul {
+    list-style: none;
+}
