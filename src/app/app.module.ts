@@ -15,12 +15,15 @@ import { StoreComponent } from './components/store/store.component';
 import { SignInComponent } from './components/signIn/sign-in.component';
 import { SignUpComponent } from './components/signUp/sign-up.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
-import { LayoutComponent } from './components/layout/layout.component';
+
+const StoreChildRoutes: Routes = [
+  {path: '', component: HeaderComponent},
+];
 
 const appRoutes: Routes = [
-  { path: '', component: StoreComponent},
-  { path: 'sign-in', component: SignInComponent},
-  { path: 'sign-up', component: SignUpComponent},
+  {path: '', component: StoreComponent, children: StoreChildRoutes},
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent},
 ];
 
 @NgModule({
@@ -33,7 +36,6 @@ const appRoutes: Routes = [
     StoreComponent,
     SignInComponent,
     SignUpComponent,
-    LayoutComponent,
   ],
   imports: [
     BrowserModule,
