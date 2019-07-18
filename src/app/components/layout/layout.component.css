@@ -1,11 +1,10 @@
 .main-content {
     display: flex;
-    justify-content: space-between;
 }
-.filters-wrap {
+.side-bar {
     flex-basis: 20%;
 }
-.products-list-wrap {
+.main-content {
     flex-basis: 80%;
     margin-left: 15px;
 }

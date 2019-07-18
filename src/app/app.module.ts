@@ -14,14 +14,17 @@ import { ProductComponent } from './components/product/product.component';
 import { StoreComponent } from './components/store/store.component';
 import { SignInComponent } from './components/signIn/sign-in.component';
 import { SignUpComponent } from './components/signUp/sign-up.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { TestComponent } from './components/test/test.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
 
-const StoreChildRoutes: Routes = [
-  {path: '', component: HeaderComponent},
+const LayoutChildRoutes: Routes = [
+  {path: '', component: StoreComponent},
+  {path: 'test', component: TestComponent},
 ];
 
 const appRoutes: Routes = [
-  {path: '', component: StoreComponent, children: StoreChildRoutes},
+  {path: '', component: LayoutComponent, children: LayoutChildRoutes},
   {path: 'sign-in', component: SignInComponent},
   {path: 'sign-up', component: SignUpComponent},
 ];
@@ -36,6 +39,8 @@ const appRoutes: Routes = [
     StoreComponent,
     SignInComponent,
     SignUpComponent,
+    LayoutComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
