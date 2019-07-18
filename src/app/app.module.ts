@@ -15,6 +15,7 @@ import { StoreComponent } from './components/store/store.component';
 import { SignInComponent } from './components/signIn/sign-in.component';
 import { SignUpComponent } from './components/signUp/sign-up.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TestComponent } from './components/test/test.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
 
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     SignInComponent,
     SignUpComponent,
     LayoutComponent,
+    SidebarComponent,
     TestComponent,
   ],
   imports: [
