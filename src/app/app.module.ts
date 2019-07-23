@@ -11,17 +11,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ProductComponent } from './components/product/product.component';
-import { StoreComponent } from './components/store/store.component';
+import { ProductShowcaseComponent } from './components/product-showcase/product-showcase.component';
 import { SignInComponent } from './components/signIn/sign-in.component';
 import { SignUpComponent } from './components/signUp/sign-up.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { TestComponent } from './components/test/test.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
 
 const LayoutChildRoutes: Routes = [
-  {path: '', component: StoreComponent},
-  {path: 'test', component: TestComponent},
+  {path: '', component: ProductShowcaseComponent},
 ];
 
 const appRoutes: Routes = [
@@ -37,12 +35,11 @@ const appRoutes: Routes = [
     ProductsListComponent,
     FiltersComponent,
     ProductComponent,
-    StoreComponent,
     SignInComponent,
     SignUpComponent,
     LayoutComponent,
     SidebarComponent,
-    TestComponent,
+    ProductShowcaseComponent,
   ],
   imports: [
     BrowserModule,

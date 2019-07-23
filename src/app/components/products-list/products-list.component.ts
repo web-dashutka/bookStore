@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpService } from './http.service';
+import { HttpService } from 'src/app/services/products.service';
+import { Product } from 'src/app/components/products-list/models/product';
 
 @Component({
   selector: 'app-products-list',
@@ -10,19 +11,19 @@ import { HttpService } from './http.service';
 
 export class ProductsListComponent {
 
-  itemsPerPage = 6;
-  products: any[];
-  error: any;
-  page: number;
-  collectionSize: number;
+  public itemsPerPage = 6;
+  public products: Product[];
+  private error: string;
+  public page: number;
+  public collectionSize: number;
 
   constructor(private httpService: HttpService) {
     this.page = 1;
     this.loadPage();
   }
 
-  loadPage() {
-    this.httpService.getData(this.page, this.itemsPerPage)
+  private loadPage() {
+    this.httpService.getProductsForSpecificPage(this.page, this.itemsPerPage)
     .subscribe(productPage => {
         this.products = productPage.productsСurrentPage;
         this.collectionSize = productPage.totalCount;
@@ -33,7 +34,7 @@ export class ProductsListComponent {
     );
   }
 
-  onPageChanged() {
+  public onPageChanged() {
     this.loadPage();
   }
 

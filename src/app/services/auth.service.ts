@@ -14,8 +14,8 @@ export class AuthService {
 
     public isLogin = false;
     public isUser = false;
-    public secretKey = 'secret_key';
     public allUsers: any;
+    public secretKey = 'secret_key';
     private userUrl = 'api/users';
 
     constructor(
@@ -23,11 +23,11 @@ export class AuthService {
         private httpClient: HttpClient,
     ) {}
 
-    getUsers(): Observable<object> {
+    public getUsers(): Observable<object> {
         return this.httpClient.get(this.userUrl);
     }
 
-    userLogin(userName: string, userPass: string) {
+    public userLogin(userName: string, userPass: string) {
         this.getUsers().subscribe(users => {
             this.allUsers = users;
             this.isUser = this.allUsers.some((user: User, i: number) => {
@@ -42,7 +42,7 @@ export class AuthService {
         });
     }
 
-    authCheck() {
+    public authCheck() {
         this.getUsers().subscribe((users: User[]) => {
             users.some(user => {
                 const token = `"${user.userName + user.userPass + this.secretKey}"`;
@@ -54,7 +54,7 @@ export class AuthService {
         });
     }
 
-    logout() {
+    public logout() {
         localStorage.removeItem('user_token');
         this.isLogin = false;
         this.authCheck();
