@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,18 +7,24 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 
-export class HeaderComponent implements DoCheck {
+export class HeaderComponent {
 
   public isLogin: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+    this.authCheck();
+  }
 
-  ngDoCheck(): void {
-    this.isLogin = this.authService.isLogin;
+  private authCheck() {
+   this.authService.authCheck().then(result => {
+      this.isLogin = result;
+    });
   }
 
   public logout(): void {
-    this.authService.logout();
+    this.authService.logout().then(result => {
+      this.isLogin = result;
+    });
   }
 
 }

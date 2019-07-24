@@ -9,6 +9,6 @@
         <a routerLink="/sign-in">Sign in</a>
     </div>
     <div *ngIf="isLogin" class="logout">
-        <a (click)="authService.logout()" routerLink="/">Log out</a>
+        <a (click)="logout()" routerLink="/">Log out</a>
     </div>
 </div>
