@@ -8,7 +8,7 @@ import { Product } from '../components/products-list/models/product';
 
 @Injectable()
 
-export class HttpService {
+export class ProductsService {
 
     private productUrl = 'api/products';
 

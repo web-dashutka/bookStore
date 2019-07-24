@@ -18,6 +18,8 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
 import { AuthService } from './services/auth.service';
+import { ProductFilterService } from './services/product-filter.service';
+import { ProductsService } from './services/products.service';
 
 const LayoutChildRoutes: Routes = [
   {path: '', component: ProductShowcaseComponent},
@@ -52,7 +54,7 @@ const appRoutes: Routes = [
     ),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProductFilterService, ProductsService],
   bootstrap: [AppComponent],
 })
 
