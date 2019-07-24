@@ -5,10 +5,12 @@ import { AuthService } from './services/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AuthService],
+  providers: [],
 })
 
 export class AppComponent {
+
+  public isLogin: boolean;
 
   constructor(public authService: AuthService) {
     this.authService.authCheck();

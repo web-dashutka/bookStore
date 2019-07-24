@@ -17,6 +17,7 @@ import { SignUpComponent } from './components/signUp/sign-up.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { InMemoryDataService } from './api/in-memory-data.service';
+import { AuthService } from './services/auth.service';
 
 const LayoutChildRoutes: Routes = [
   {path: '', component: ProductShowcaseComponent},
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     ),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 

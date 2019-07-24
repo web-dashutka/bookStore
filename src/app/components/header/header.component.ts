@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -7,13 +7,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements DoCheck {
 
   public isLogin: boolean;
 
-  constructor(public authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngDoCheck(): void {
     this.isLogin = this.authService.isLogin;
   }
 
