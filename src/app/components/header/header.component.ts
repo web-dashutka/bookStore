@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +9,21 @@ import { AuthService } from '../../services/auth.service';
 
 export class HeaderComponent {
 
-  public isLogin: boolean;
+  public loginStatus: boolean;
 
   constructor(private authService: AuthService) {
     this.authCheck();
-  }
+   }
 
-  private authCheck() {
-   this.authService.authCheck().then(result => {
-      this.isLogin = result;
+  public authCheck() {
+    this.authService.loginSubject.subscribe(isLogin => {
+      this.loginStatus = isLogin;
     });
   }
 
-  public logout(): void {
-    this.authService.logout().then(result => {
-      this.isLogin = result;
-    });
+  public logout() {
+    this.authService.logout();
+    this.authCheck();
   }
 
 }

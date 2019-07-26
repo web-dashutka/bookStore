@@ -12,8 +12,6 @@ export class AppComponent {
 
   public isLogin: boolean;
 
-  constructor(public authService: AuthService) {
-    this.authService.authCheck();
-  }
+  constructor(public authService: AuthService) { }
 
 }

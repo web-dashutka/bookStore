@@ -1,68 +1,56 @@
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-class User {
-    constructor(
-        public userName: string,
-        public userPass: string,
-        public token: string,
-    ) { }
-}
+import { BehaviorSubject } from 'rxjs';
 
 export class AuthService {
 
     public isLogin = false;
-    public isUser = false;
-    public allUsers: any;
+    public allUsers: object;
     public secretKey = 'secret_key';
     private userUrl = 'api/users';
+    public loginSubject = new BehaviorSubject(this.isLogin);
 
     constructor(
         private router: Router,
         private httpClient: HttpClient,
     ) {}
 
-    public getUsers(): Observable<object> {
-        return this.httpClient.get(this.userUrl);
+    public getUsers(): Promise<object> {
+        return this.httpClient.get(this.userUrl).toPromise();
     }
 
-    public userLogin(userName: string, userPass: string) {
-        this.getUsers().subscribe(users => {
-            this.allUsers = users;
-            this.isUser = this.allUsers.some((user: User) => {
-                if (user.userName === userName && user.userPass === userPass) {
-                    const token = user.userName + user.userPass + this.secretKey;
-                    localStorage.setItem('user_token', JSON.stringify(token));
-                    this.router.navigate(['']);
-                    this.authCheck();
-                    return true;
-                }
-            });
-        });
-    }
-
-    public authCheck() {
-        const authCheckResult: Promise<boolean> = new Promise((resolve: (value: boolean) => void) => {
-            this.getUsers().subscribe((users: User[]) => {
-                users.some(user => {
-                    const token = `"${user.userName + user.userPass + this.secretKey}"`;
-                    if (token === localStorage.getItem('user_token')) {
+    public userLogin(userName: string, userPass: string): void {
+        this.getUsers().then(users => {
+            for (const user in users) {
+                if (users.hasOwnProperty(user)) {
+                    if (users[user].userName === userName && users[user].userPass === userPass) {
+                        this.useToken('create', [userName, userPass]);
+                        this.router.navigate(['']);
                         this.isLogin = true;
+                        this.loginSubject.next(this.isLogin);
                         return true;
-                    } else {
-                        this.isLogin = false;
                     }
-                });
-                resolve(this.isLogin);
-            });
+                }
+            }
         });
-        return authCheckResult;
     }
 
-    public logout(): Promise<boolean> {
-        localStorage.removeItem('user_token');
-        return this.authCheck();
+    public logout(): void {
+        this.useToken('remove');
+        this.isLogin = false;
+        this.loginSubject.next(this.isLogin);
+    }
+
+    private useToken(action: string, userData: string[] = []) {
+        switch (action) {
+            case 'create':
+                const token = userData[0] + userData[1] + this.secretKey;
+                localStorage.setItem('user_token', JSON.stringify(token));
+                break;
+            case 'remove':
+                localStorage.removeItem('user_token');
+                break;
+        }
     }
 
 }

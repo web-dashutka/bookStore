@@ -5,10 +5,10 @@
             <h3>BooksStore</h3>
         </a>
     </div>
-    <div *ngIf="!isLogin" class="login">
+    <div *ngIf="!loginStatus" class="login">
         <a routerLink="/sign-in">Sign in</a>
     </div>
-    <div *ngIf="isLogin" class="logout">
+    <div *ngIf="loginStatus" class="logout">
         <a (click)="logout()" routerLink="/">Log out</a>
     </div>
 </div>
